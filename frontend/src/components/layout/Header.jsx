@@ -11,7 +11,7 @@ function Header() {
             <div class="max-w-1200 mx-auto flex items-center justify-between gap-4">
                 <div class="flex items-center gap-10">      
                     <div class="flex items-center gap-2 group cursor-pointer">
-                        <div class="bg-primary p-2 rounded-full text-white shadow-lg shadow-primary/30">
+                        <div class="bg-primary p-2 rounded-full text-blue-800 shadow-lg shadow-primary/30">
                             <span class="material-symbols-outlined text-2xl">rocket_launch</span>
                         </div>
                         <h2 class="text-2xl font-800 tracking-tight text-[#181411] dark:text-white">ToyJoy</h2>

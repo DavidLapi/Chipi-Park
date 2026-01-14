@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 /* User */
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -17,6 +17,7 @@ import Products from "../pages/admin/Products";
 export const router = createBrowserRouter(
   [
     { path: "/", Component: Home },
+    { path: "/home", element: <Navigate to="/" replace />}, // <-- Alias
     { path: "/login", Component: Login },
     { path: "/register", Component: Register },
     { path: "/profile", Component: Profile },
