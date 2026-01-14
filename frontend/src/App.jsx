@@ -2,15 +2,15 @@ import { useState } from 'react'
 
 import LogoCP from './assets/logo_chipipark.png'
 
-import Navbar from './components/layout/Navbar'
+import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      
+      <Header />
+
       <h1>
         Hola Chipi Park
       </h1>

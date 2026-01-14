@@ -1,7 +1,9 @@
 /**
- Componente Footer
+ * Componente Footer
+ * Propósito: Barra de navegación inferior global
  */
 
+// src/components/layout/Footer.jsx
 function Footer() {
     return (
         <footer className="bg-slate-800 text-white py-12">
