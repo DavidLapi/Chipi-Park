@@ -1,6 +1,6 @@
 /**
- * Página Register
- * Propósito: Registro de usuario nuevo 
+ * Página Games
+ * Propósito: Juegos de Ordenador
  */
 
 import React from 'react'
@@ -8,14 +8,14 @@ import React from 'react'
 import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
 
-function Register() {
+const Games = () => {
   return (
     <div>
-      <Header />
-      <h1>Register</h1>
-      <Footer />
+        <Header />
+        <h1>Games</h1>
+        <Footer />
     </div>
   )
 }
 
-export default Register
+export default Games

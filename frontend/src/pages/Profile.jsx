@@ -5,9 +5,16 @@
 
 import React from 'react'
 
+import Header from '../components/layout/Header'
+import Footer from '../components/layout/Footer'
+
 function Profile() {
   return (
-    <div>Profile</div>
+    <div>
+      <Header />
+      <h1>Profile</h1>
+      <Footer />
+    </div>
   )
 }
 

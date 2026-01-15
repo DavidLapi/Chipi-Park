@@ -8,6 +8,7 @@ import Cart from "../pages/Cart";
 import Catalog from "../pages/Catalog";
 import ProductDetail from "../pages/ProductDetail";
 import Wishlist from "../pages/Wishlist";
+import Games from "../pages/Games";
 
 /* Admin */
 import Dashboard from "../pages/admin/Dashboard";
@@ -25,6 +26,7 @@ export const router = createBrowserRouter(
     { path: "/catalog", Component: Catalog },
     { path: "/productdetail", Component: ProductDetail },
     { path: "/wishlist", Component: Wishlist },
+    { path: "/games", Component: Games},
     { path: "/admin", Component: Dashboard },
     { path: "/admin/orders", Component: Orders },
     { path: "/admin/products", Component: Products },
