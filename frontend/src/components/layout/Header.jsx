@@ -50,11 +50,23 @@ function Header() {
                             <span class="absolute top-0 right-0 bg-accent-red text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white dark:border-background-dark">0</span>
                         </button>
                     </Link>
-                    <Link to="/profile">
+                    <Link to="/login">
+                        <button class="p-2.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all relative">
+                            <span>Login</span>
+                        </button>
+                    </Link>
+                    <Link to="/register">
+                        <button class="p-2.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all relative">
+                            <span>Register</span>
+                        </button>
+                    </Link>
+                    {/* 
+                    <Link to="/login">
                         <div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden shadow-inner">
                             <img alt="User profile avatar" class="w-full h-full object-cover" data-alt="Cartoon style user avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc_ZAc22xwZMqmhuLoE-rUwuV2pU-iFBfGe8lO-jojQYvaG5ezkb71Om6lj4-3uNnxsrJBSXtllP9CL9bVt-apuUr_6wZg7BU2R-GuQg_wIE7Hx2Yu2e-T0o5K6yEZEwB4P2YuFdqrc2tIhzrT77KI0ZxgcWgyQlNMspinaJuRQF2wRUQaR2dKE2CBHksKRinuVxcCBQZAZ7QIAkhxqOq-TmEMAKSsbUAo53eqrdzu__Ym1mNq48XDytANoillS3XRTCNG3CQheJtN"/>
                         </div>
                     </Link>
+                    */}
                 </div>
             </div>
         </div>
