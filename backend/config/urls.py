@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 from categories.views import CategoryViewSet
 from products.views import ProductViewSet
 from users.views import UserViewSet
@@ -31,7 +33,17 @@ router.register(r'users', UserViewSet, basename='user')
 router.register(r'orders', OrderViewSet, basename='order')
 router.register(r'reviews', ReviewViewSet, basename='review')
 
+# Rutas endpoints
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # API endpoints
     path('api/', include(router.urls)),
+
+    # Autenticacion JWT
+    path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # Registro
+    path('api/auth/', include('users.urls')),
 ]
