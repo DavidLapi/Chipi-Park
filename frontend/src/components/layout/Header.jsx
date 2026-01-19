@@ -57,7 +57,7 @@ function Header() {
                     </Link>
                     <Link to="/register">
                         <button class="p-2.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all relative">
-                            <span>Register</span>
+                            <span>Registrar</span>
                         </button>
                     </Link>
                     {/* 
