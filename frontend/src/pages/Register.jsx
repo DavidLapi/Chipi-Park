@@ -3,12 +3,14 @@
  * Propósito: Registro de usuario nuevo 
  */
 
-import React from 'react'
-
-import { Link } from 'react-router'
+import React, { useState, useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
+import { useNavigate, Link } from 'react-router'
 
 import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
+
+import Logo from "../assets/logo_chipipark.png";
 
 function Register() {
   return (
@@ -24,7 +26,7 @@ function Register() {
           <div class="hidden md:flex flex-col justify-center p-12 bg-primary/10 dark:bg-primary/5 border-r border-gray-100 dark:border-slate-800">
             <div class="mb-8">
               <div class="w-16 h-16 bg-accent-peach rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-accent-peach/20">
-                <span class="material-symbols-outlined text-white text-3xl">celebration</span>
+                <img alt="Chipi Park Logo" class="w-full h-full object-cover" data-alt="Chipi Park" src={Logo} />
               </div>
               <h2 class="text-3xl font-black text-[#121517] dark:text-white mb-4 leading-tight">¡Únete a la mayor aventura de juego!</h2>
               <p class="text-[#657b86] dark:text-gray-400 text-lg">Crea tu cuenta hoy y obtén acceso exclusivo a lanzamientos limitados y descuentos especiales en toda la tienda.</p>
@@ -75,13 +77,27 @@ function Register() {
                 <input class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-[#dce2e5] dark:border-slate-700 bg-white dark:bg-slate-800 text-[#121517] dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" placeholder="juan@ejemplo.com" type="email" required/>
               </div>
             </div>
+            {/*<!-- Teléfono --> */}
+            <div class="flex flex-col gap-1.5">
+              <label class="text-[#121517] dark:text-gray-200 text-sm font-bold">Teléfono</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">phone_forwarded</span>
+                <input class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-[#dce2e5] dark:border-slate-700 bg-white dark:bg-slate-800 text-[#121517] dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" 
+                placeholder="654123789" 
+                type="text" 
+                required/>
+              </div>
+            </div>
             {/*<!-- Contraseñas -->*/}
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="flex flex-col gap-1.5">
                 <label class="text-[#121517] dark:text-gray-200 text-sm font-bold">Contraseña</label>
                 <div class="relative">
                   <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">lock</span>
-                  <input class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-[#dce2e5] dark:border-slate-700 bg-white dark:bg-slate-800 text-[#121517] dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" placeholder="••••••••" type="password" required/>
+                  <input class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-[#dce2e5] dark:border-slate-700 bg-white dark:bg-slate-800 text-[#121517] dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" 
+                  placeholder="••••••••" 
+                  type="password" 
+                  required/>
                 </div>
               </div>
             <div class="flex flex-col gap-1.5">

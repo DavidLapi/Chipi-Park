@@ -8,7 +8,12 @@ import Cart from "../pages/Cart";
 import Catalog from "../pages/Catalog";
 import ProductDetail from "../pages/ProductDetail";
 import Wishlist from "../pages/Wishlist";
+
+/* Games */
 import Games from "../pages/Games";
+import Tictactoe from "../pages/games/Tictactoe";
+import Mathexercises from "../pages/games/Mathexercises";
+import Guessthechipi from "../pages/games/Guessthechipi";
 
 /* Admin */
 import Dashboard from "../pages/admin/Dashboard";
@@ -26,7 +31,12 @@ export const router = createBrowserRouter(
     { path: "/catalog", Component: Catalog },
     { path: "/productdetail", Component: ProductDetail },
     { path: "/wishlist", Component: Wishlist },
+    // Games
     { path: "/games", Component: Games},
+    { path: "/games/tictactoe", Component: Tictactoe},
+    { path: "/games/mathexercises", Component: Mathexercises},
+    { path: "/games/guessthechipi", Component: Guessthechipi},
+    // Admin
     { path: "/admin", Component: Dashboard },
     { path: "/admin/orders", Component: Orders },
     { path: "/admin/products", Component: Products },

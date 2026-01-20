@@ -67,10 +67,16 @@ const Login = () => {
                 </div> 
               )}
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-gray-900 dark:text-gray-200 text-sm font-semibold">Correo Electrónico</label>
-                  <input className="flex w-full rounded-xl text-gray-900 dark:text-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-14 px-4 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="ejemplo@correo.com" type="email"/>
+                  <input 
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="flex w-full rounded-xl text-gray-900 dark:text-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-14 px-4 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" 
+                    placeholder="ejemplo@correo.com" />
                 </div>
                 <div class="flex flex-col gap-2">
                   <div className="flex justify-between items-center">
@@ -78,15 +84,24 @@ const Login = () => {
                     <a className="text-primary text-xs font-bold hover:underline" href="#">¿Olvidaste tu contraseña?</a>
                   </div>
                   <div className="relative group">
-                    <input className="flex w-full rounded-xl text-gray-900 dark:text-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-14 px-4 pr-12 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="********" type="password"/>
+                    <input 
+                    type="password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="flex w-full rounded-xl text-gray-900 dark:text-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-14 px-4 pr-12 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" 
+                    placeholder="********" 
+                    />
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer hover:text-primary">
                         <span className="material-symbols-outlined">visibility</span>
                       </div>
                     </div>
                   </div>
                   <div className="w-full flex items-center justify-around">
-                    <button className="w-100 rounded-xl h-14 bg-primary text-blue-500 text-lg font-bold shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all" type="submit">
-                      Iniciar Sesión
+                    <button className="w-100 rounded-xl h-14 bg-primary text-blue-500 text-lg font-bold shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all" 
+                    type="submit"
+                    disabled={loading}>
+                      {loading ? "Iniciando sesión..." : "Iniciar Sesión"}
                     </button>
                     <button className="w-100 rounded-xl h-14 bg-primary text-blue-500 text-lg font-bold shadow-lg shadow-primary/30 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all" type="reset">
                       Limpiar

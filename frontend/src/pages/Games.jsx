@@ -8,6 +8,8 @@ import React from 'react'
 import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
 
+import { Link } from 'react-router'
+
 const Games = () => {
   return (
     <div>
@@ -42,10 +44,12 @@ const Games = () => {
                         <h3 class="text-slate-900 dark:text-white text-xl font-bold">Tres en Raya</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Desafía a la IA o a un amigo en este clásico atemporal.</p>
                     </div>
-                    <button class="mt-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary/20">
-                        <span class="material-symbols-outlined">play_circle</span>
-                        JUGAR AHORA
-                    </button>
+                    <Link to="/games/tictactoe">
+                        <button class="mt-2 w-full bg-primary hover:bg-primary/90 text-blue-600 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary/20">
+                            <span class="material-symbols-outlined">play_circle</span>
+                            JUGAR AHORA
+                        </button>
+                    </Link>
                 </div>
                 {/*  Game Card 2  */}
                 <div class="group relative flex flex-col gap-4 p-5 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 transition-all hover:-translate-y-2 game-card-shadow">
@@ -58,13 +62,15 @@ const Games = () => {
                         <h3 class="text-slate-900 dark:text-white text-xl font-bold">Matemáticas Rápidas</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Mejora tu agilidad mental resolviendo operaciones contra el reloj.</p>
                     </div>
-                        <button class="mt-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary/20">
+                    <Link to="/games/mathexercises">
+                        <button class="mt-2 w-full bg-primary hover:bg-primary/90 text-blue-600 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary/20">
                             <span class="material-symbols-outlined">play_circle</span>
                             JUGAR AHORA
                         </button>
-                    </div>
-                    {/* Game Card 3 */}
-                    <div class="group relative flex flex-col gap-4 p-5 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 transition-all hover:-translate-y-2 game-card-shadow">
+                    </Link>
+                </div>
+                {/* Game Card 3 */}
+                <div class="group relative flex flex-col gap-4 p-5 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 transition-all hover:-translate-y-2 game-card-shadow">
                     <div class="w-full aspect-video rounded-xl overflow-hidden bg-linear-to-br from-yellow-400 to-amber-600 flex items-center justify-center relative shadow-inner">
                         <span class="material-symbols-outlined text-white text-6xl opacity-80">capture</span>
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
@@ -74,10 +80,12 @@ const Games = () => {
                         <h3 class="text-slate-900 dark:text-white text-xl font-bold">Adivina el Chipi</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">¿Hazte con todos? Adivina la silueta antes de que se acabe el tiempo.</p>
                     </div>
-                    <button class="mt-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary/20">
-                        <span class="material-symbols-outlined">play_circle</span>
-                        JUGAR AHORA
-                    </button>
+                    <Link to="/games/guessthechipi">
+                        <button class="mt-2 w-full bg-primary hover:bg-primary/90 text-blue-600 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary/20">
+                            <span class="material-symbols-outlined">play_circle</span>
+                            JUGAR AHORA
+                        </button>
+                    </Link>
                 </div>
             </div>
             {/* SectionHeader: Premium Content */}
