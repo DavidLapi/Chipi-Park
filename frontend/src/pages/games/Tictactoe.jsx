@@ -56,6 +56,7 @@ const Tictactoe = () => {
         return (
             <>
             <Header />
+            {/* Game Menu */}
             <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
                 <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
                     <h1 className="text-4xl font-bold text-center mb-2 text-indigo-600">
@@ -92,6 +93,9 @@ const Tictactoe = () => {
     }
 
     return (
+        <>
+        <Header />
+        {/* Game Start */}
         <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
             <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-4xl w-full">
                 <div className="flex justify-between items-center mb-6">
@@ -122,6 +126,7 @@ const Tictactoe = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
