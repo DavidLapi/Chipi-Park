@@ -1,4 +1,7 @@
+// Juego básico "Matemáticas rápidas"
+
 import React, {useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router'
 
 import Header from '../../components/layout/Header'
 
@@ -163,9 +166,14 @@ const Mathexercises = () => {
                     <div className="text-lg">🔥 Difícil</div>
                     <div className="text-sm opacity-90">45 segundos • Todas las operaciones</div>
                   </button>
+                  <Link to="/games">
+                    <button className="w-full py-4 bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold rounded-xl transition-colors">
+                      Volver a Juegos
+                    </button>
+                  </Link>
                 </div>
-              </div>
-            </div>
+              </div> 
+          </div>
       </div>
     )
   }

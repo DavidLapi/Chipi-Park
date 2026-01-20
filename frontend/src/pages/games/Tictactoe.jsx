@@ -1,6 +1,7 @@
 // Juego básico "Tres en raya"
 
 import React, { useState } from 'react'
+import { Link } from 'react-router'
 
 import Header from '../../components/layout/Header'
 
@@ -78,6 +79,11 @@ const Tictactoe = () => {
                         >
                             👥 Jugar con un amigo
                         </button>
+                        <Link to="/games">
+                            <button className="w-full py-4 bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold rounded-xl transition-colors">
+                                Volver a Juegos
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
