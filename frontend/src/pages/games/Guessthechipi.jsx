@@ -25,6 +25,10 @@ const Guessthechipi = () => {
     { id: 'charmander', name: 'ChipiCharmander', type: 'Fuego', generation: 1 },
     { id: 'squirtle', name: 'ChipiSquirtle', type: 'Agua', generation: 1 },
     { id: 'charizard', name: 'ChipiCharizard', type: 'Fuego', generation: 1 },
+    { id: 'rayquaza', name: 'ChipiRayquaza', type: 'Dragón', generation: 1 },
+    { id: 'psyduck', name: 'ChipiPsyduck', type: 'Agua', generation: 1 },
+    { id: 'jigglypuff', name: 'ChipiJigglypuff', type: 'Hada', generation: 1 },
+    { id: 'magikarp', name: 'ChipiMagikarp', type: 'Agua', generation: 1 },
   ]
 
   useEffect(() => {
