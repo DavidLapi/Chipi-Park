@@ -2,91 +2,121 @@
 // Context de Autenticación de usuario
 
 import React, { createContext, useState, useEffect } from 'react'
+import authService from '../api/services/authService';
 import api from '../api/axiosConfig'
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     // Cargar usuario al iniciar
     useEffect(() => {
         const loadUser = async () => {
-            const token = localStorage.getItem('access_token');
+            const token = localStorage.getItem('access_token')
+
             if (token) {
-                try {
-                    const response = await api.get('/users/me/');
-                    setUser(response.data);
-                } catch (error) {
-                    console.error('Error loading user:', error);
-                    localStorage.removeItem('access_token');
-                    localStorage.removeItem('refresh_token');
+                const result = await authService.getCurrentUser()
+
+                if (result.success) {
+                    setUser(response.data)
+                    setIsAuthenticated(true)
+                } else {
+                    // Token inválido, limpiar
+                    localStorage.removeItem('access_token')
+                    localStorage.removeItem('refresh_token')
                 }
             }
-            setLoading(false);
-        };
+            setLoading(false)
+        }
 
-            loadUser();
-    }, []);
+        loadUser()
+    }, [])
 
     // Login
     const login = async (email, password) => {
-        try {
-            const response = await api.post('/auth/login/', { email, password });
-            const { access, refresh } = response.data;
+        const result = await authService.login(email, password)
       
+        if (result.success) {
+            const { access, refresh } = result.data
+
+            // Guardar tokens
             localStorage.setItem('access_token', access);
             localStorage.setItem('refresh_token', refresh);
 
             // Obtener datos del usuario
-            const userResponse = await api.get('/users/me/');
-            setUser(userResponse.data);
+            const userResult = await authService.getCurrentUser() 
 
-            return { success: true };
-        } catch (error) {
-            return { 
-                success: false, 
-                error: error.response?.data?.detail || 'Error al iniciar sesión' 
-            };
-        }
+            if (userResult.success) {
+                setUser(userResult.data)
+                setIsAuthenticated(true)
+            }
+        } 
+
+        return result
     };
 
     // Register
     const register = async (userData) => {
-        try {
-            const response = await api.post('/auth/register/', userData);
-            const { tokens, user: newUser } = response.data;
+        const result= await authService.register(userData)
+
+        if (result.success) {
+            const { tokens, user: newUser } = result.data;
       
+            // Guardar tokens
             localStorage.setItem('access_token', tokens.access);
             localStorage.setItem('refresh_token', tokens.refresh);
+      
             setUser(newUser);
-
-            return { success: true };
-        } catch (error) {
-            return { 
-                success: false, 
-                error: error.response?.data || 'Error al registrarse' 
-            };
+            setIsAuthenticated(true);
         }
+        
+        return result
+        
     };
 
     // Logout
     const logout = async () => {
-        try {
-            const refreshToken = localStorage.getItem('refresh_token');
-            await api.post('/auth/logout/', { refresh: refreshToken });
-        } catch (error) {
-            console.error('Error during logout:', error);
-        } finally {
-            localStorage.removeItem('access_token');
-            localStorage.removeItem('refresh_token');
-            setUser(null);
+        const refreshToken = localStorage.getItem('refresh_token');
+
+        if (refreshToken) {
+            await authService.logout(refreshToken)
         }
-    };
+            
+        // Limpiar estado
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        setUser(null);
+        setIsAuthenticated(false)
+    }
+
+    // Actualizar perfil
+    const updateProfile = async (userData) => {
+        if (!user) return { success: false, error: 'No hay usuario autenticado' }
+    
+        const result = await authService.updateProfile(user.id, userData)
+    
+        if (result.success) {
+            setUser(result.data)
+        }
+    
+        return result
+    }
+
+    const value = {
+        user, 
+        loading, 
+        isAuthenticated,
+        login, 
+        register, 
+        logout,
+        updateProfile,
+    }
 
     return (
-        <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+        <AuthContext.Provider value={value}>
             {children}
         </AuthContext.Provider>
   );
