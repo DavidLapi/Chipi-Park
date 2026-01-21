@@ -4,6 +4,9 @@
  */
 
 // src/components/layout/Footer.jsx
+
+import { Link } from "react-router";
+
 function Footer() {
     return (
         <footer className="bg-slate-800 text-white py-12">
@@ -36,9 +39,9 @@ function Footer() {
                     <div>
                         <h4 className="font-bold mb-4">Legal</h4>
                         <ul className="space-y-2 text-sm text-slate-400">
-                            <li><a href="#" className="hover:text-white transition">Términos</a></li>
-                            <li><a href="#" className="hover:text-white transition">Privacidad</a></li>
-                            <li><a href="#" className="hover:text-white transition">Cookies</a></li>
+                            <li><Link to="/politicalterms">Términos</Link></li>
+                            <li><Link to="/privacityterms">Privacidad</Link></li>
+                            <li><Link to="/cookiesterms">Cookies</Link></li>
                         </ul>
                     </div>
                 </div>

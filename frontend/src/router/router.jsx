@@ -15,6 +15,11 @@ import Tictactoe from "../pages/games/Tictactoe";
 import Mathexercises from "../pages/games/Mathexercises";
 import Guessthechipi from "../pages/games/Guessthechipi";
 
+/* Politica */
+import Political_terms from "../pages/legal/political_terms";
+import Privacy_terms from "../pages/legal/Privacy_terms";
+import Cookies_terms from "../pages/legal/Cookies_terms";
+
 /* Admin */
 import Dashboard from "../pages/admin/Dashboard";
 import Orders from "../pages/admin/Orders";
@@ -40,5 +45,9 @@ export const router = createBrowserRouter(
     { path: "/admin", Component: Dashboard },
     { path: "/admin/orders", Component: Orders },
     { path: "/admin/products", Component: Products },
+    // Politicas
+    { path: "/politicalterms", Component: Political_terms },
+    { path: "/privacityterms", Component: Privacy_terms },
+    { path: "/cookiesterms", Component: Cookies_terms },
   ]
 )

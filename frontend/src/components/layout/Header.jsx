@@ -5,10 +5,34 @@
 
 // src/components/layout/Header.jsx
 
-import { Link } from "react-router";
-import Logo from "../../assets/logo_chipipark.png";
+import React, {useState, useContext } from "react"
+import { Link, useNavigate } from "react-router"
+import { AuthContext } from "../../context/AuthContext"
+import { CartContext } from "../../context/CartContext"
+import Logo from "../../assets/logo_chipipark.png"
 
 function Header() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [searchQuery, setSearchQuery] = useState('')
+  
+    const { user, logout } = useContext(AuthContext)
+    //const { cartCount } = useContext(CartContext)
+    const navigate = useNavigate()
+
+    const handleSearch = (e) => {
+        e.preventDefault()
+        if (searchQuery.trim()) {
+            navigate(`/catalog?search=${searchQuery}`)
+            setSearchQuery('')
+        }
+    }
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+    };
+
+
     return (
         <header class="sticky top-0 z-50 w-full px-6 md:px-20 py-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#f5f2f0] dark:border-[#3d2e1f]">
             <div class="max-w-1200 mx-auto flex items-center justify-between gap-4">
